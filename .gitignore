@@ -1,0 +1,72 @@
+# maven ignore
+target/
+# *.jar
+*.war
+*.zip
+*.tar
+*.tar.gz
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+*.java~
+*.properties~
+*.xml~
+
+# system ignore
+.DS_Store
+Thumbs.db
+version.properties
+
+# npm ignore
+node_modules
+yarn.lock
+
+.vscode
+package-lock.json
+ttk/apidoc
+*_drds.sql
+
+/db_drds/data_asset_upgrade.sql
+/db_drds/data_ba.sql
+/db_drds/data_biz.sql
+/db_drds/data_biz_core.sql
+/db_drds/data_core_upgrade.sql
+/db_drds/data_edf.sql
+/db_drds/data_edf_upgrade.sql
+/db_drds/data_gl.sql
+/db_drds/data_gl_upgrade.sql
+/db_drds/data_invoice_upgrade.sql
+/db_drds/data_scm_upgrade.sql
+/db_drds/data_ss_upgrade.sql
+/db_drds/data_tx_upgrade.sql
+/db_drds/proc_asset_upgrade.sql
+/db_drds/proc_core_upgrade.sql
+/db_drds/proc_edf.sql
+/db_drds/proc_edf_upgrade.sql
+/db_drds/proc_gl_upgrade.sql
+/db_drds/proc_invoice_upgrade.sql
+/db_drds/proc_scm_upgrade.sql
+/db_drds/proc_ss_upgrade.sql
+/db_drds/proc_tx_upgrade.sql
+/ttk/service/gl/gl-interface/src/main/java/com/ttk/gl/dto/DB2JavaConvertor.java
+/ttk/service/gl/gl-service/src/test
+ttk/service/dubboregistry
+/tax-zzfw
+/pom.xml
+pom/dubboregistry
+pom/tmp_captcha

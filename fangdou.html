@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function debounce(fn){
+        let timeOut = null;
+        return function(){
+            clearTimeout(timeOut)
+            timeOut = setTimeout(()=>{
+                fn.apply(this,arguments)
+
+            },500)
+        };
+    }
+    function sayHi(){
+        console.log('防抖陈工')
+    }
+
+    function throttle(fn){
+        let canRun = true;
+        return function(){
+            if(!canRun) return 
+            canRun = false;
+            setTimeout(()=>{
+                fn.apply(this,arguments);
+                canRun = true
+            },500)
+
+        }
+    }
+    function sayHii(e){
+        console.log(e.target.innerHeight,e.target.innerWidth)
+    }
+    window.addEventListener('resize', throttle(sayHii));
+
+</script>
+<body>
+    <input id='inp' type="text">
+
+<script>
+    var inp = document.getElementById('inp');
+    inp.addEventListener('input',debounce(sayHi));
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <input type="button" id="button" value="点击" />
+    <input type="button" id="button1" value="点击1" />
+    <script type='text/javascript'>
+        // 后端返回直接执行的方法，相当于执行这个方法，由于后端把返回的数据放在方法的参数里，所以这里能拿到res。
+        window.getStatus = function (res) {
+            console.log(res)
+        }
+        getUnifiedAuthToken = (callback) => {
+            var url = "http://localhost:3002/ac/v1/jsonp?msg=helloJsonp" + "&callback=?"
+            return $.getJSON(url);
+        }
+        $(document).ready(function () {
+
+            $("#button").click(function () {
+                $.getJSON('http://127.0.0.1:3002/ac/v1/jsonp?msg=helloJsonp&cb=?', function (data) {
+                    console.log(data)
+                });
+            });
+            $("#button1").click(function () {
+                $.getJSON('http://127.0.0.1:8080/getUKey?callType=5&account=44001008&password=789456&conversationId=09d4aec71e204ce9ba79460e247c79d3&contact=111984', function (data) {
+                    console.log(data)
+                });
+            });
+        });
+        // depClient = (id) => {
+        //     // let iframe = document.createElement('');
+        //     // iframe.id = id;
+        //     // iframe.frameborder = "0";
+        //     // iframe.style.width = "0px";
+        //     // iframe.style.height = "0px";
+        //     // iframe.src = 'http://localhost:3002/ac/v1/jsonp?msg=helloJsonp&cb=jsonpCb';
+        //     // document.body.appendChild(iframe);
+        //     var hm = document.createElement("script");
+        //     hm.src = "http://127.0.0.1:8080/getUKey?callType=4&&cb=getStatus";
+        //     document.body.appendChild(hm)
+        // }
+
+
+
+    </script>
+
+</body>
+
+</html>

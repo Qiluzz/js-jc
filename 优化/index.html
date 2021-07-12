@@ -1,0 +1,41 @@
+<!-- 做了优化，复制以下代码运行发现以上问题都解决了，注意这里没有加定时器，js代码是马上执行的 -->
+<html>
+
+<head>
+    <title>渲染不会卡的代码示例</title>
+</head>
+
+<body>
+    <button onclick="alert(123)">按钮</button>
+    <ul>列表</ul>
+    <script>
+        // 插入十万条数据，渲染十万个DOM
+        const total = 100000;
+        // 设置每次插入显示的DOM数量，根据情况自己设置
+        const once = 100;
+        // 当前已经渲染DOM的总数
+        let countOfRender = 0;
+        let ul = document.querySelector("ul");
+        function loop() {
+            // 游览器单线程，一次性渲染大量的DOM，会阻塞用户操作，阻塞CSS渲染，有较长白屏事件等问题
+            // 所以我们只需要每次渲染少量的DOM不会阻塞用户操作即可解决这些问题
+            requestAnimationFrame(() => {
+                const fragment = document.createDocumentFragment();
+                // 每次只渲染once条数据
+                for (let i = 0; i < once; i++) {
+                    // 当DOM渲染完就退出
+                    if (countOfRender >= total) return;
+                    const li = document.createElement("li");
+                    li.innerText = Math.floor(Math.random() * total);
+                    fragment.appendChild(li);
+                    countOfRender += 1;
+                }
+                ul.appendChild(fragment);
+                loop();
+            })
+        }
+        loop();
+    </script>
+</body>
+
+</html>

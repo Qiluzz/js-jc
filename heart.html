@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心形</title>
+    <style>
+        body{
+            background-color:white;
+            animation-name:backdiv;
+            animation-duration:1s;
+            animation-iteration-count:infinite;
+        }
+        @keyframes backdiv{
+            50%{
+                background-color: #ffe6f2;
+            }
+        }
+
+        #heart{
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            animation: hear;
+            animation-duration:1s;
+            animation-iteration-count:infinite;
+        }
+        @keyframes hear{
+            0%{
+                transform:scale(1) rotate(-45deg)
+            }
+            50%{
+                transform:scale(0.5) rotate(-45deg)
+            }
+        }
+        #heart::before{
+            content:'';
+            background-color: pink;
+            position: absolute;
+            top:-25px;
+            left: 0px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+
+        }
+        #heart::after{
+            content:'';
+            background-color: pink;
+            position: absolute;
+            top:0px;
+            right: -25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div id='heart'></div>
+<button accesskey="b" onclick="{console.log('1')}">Important Button</button>
+</body>
+</html>

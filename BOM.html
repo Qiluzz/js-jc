@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="start">Start</button>
+    <button id="cancel">Cancel</button>
+</body>
+<script>
+    const startButton = document.querySelector('#start');
+    const cancelButton = document.querySelector('#cancel');
+
+    // let wroxWin = window.open('http:xdz.jchl.com','wroxWindow',"height=400,width=400,top=10,left=10,resizeable=yes");
+    // wroxWin.moveTo(500,500);
+    // startButton.addEventListener("click", () => wroxWin.resizeTo(11,11));
+    cancelButton.addEventListener("click", () => 
+    window.parent.postMessage({
+        method: 'openGlobalTab',
+        data: {
+            appName:'ttk-taxapply-app-electronic-tax?l=gspz', 
+            name: '个税凭证',
+            params:{
+                accessType: 0,
+                dzgl: true,
+                isFolded: 0,
+                isGuide: false,
+                isMenuCode: "30050",
+                linkCode: 30050,
+                linkType: "gs",
+                openType: "menu",
+                requestType: 0,
+                sourceType: 1,
+                urlType: "sz-gs-voucher",
+            },
+            urlParams:{
+                vocherType:"scjy",
+                params1:'122',
+                params3:"eee"
+            }
+        }
+        }, "*")
+    );
+   
+</script>
+</html>
