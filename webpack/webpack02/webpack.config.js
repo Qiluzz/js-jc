@@ -1,4 +1,6 @@
 const path = require('path')
+const webpack = require('webpack')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports ={
     target: ['web', 'es5'],
@@ -8,7 +10,8 @@ module.exports ={
         path:path.resolve(__dirname, 'dist')
     },
     module:{
-        rules:[
+        rules: [
+           
            {
                 test: /\.m?js$/,
                 exclude: /(node_modules|bower_components)/,
@@ -43,9 +46,21 @@ module.exports ={
                 }
             ]
 
-        }]
+        } ,{
+            test: /\.vue$/,
+            loader: 'vue-loader'
+        } ]
     },
-    plugins:[],
-    mode:'development'
+    plugins:[
+        new webpack.BannerPlugin('最终版权归AAAA'),
+        new VueLoaderPlugin()
+       
+    ],
+    mode:'development',
+    resolve:{
+        alias:{
+            'vue$':'vue/dist/vue.esm.js'
+        }
+    }
 
 }
