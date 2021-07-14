@@ -9,10 +9,11 @@ module.exports ={
          //项目构建后的路径
         contentBase:path.resolve(__dirname,'./dist'),
         //启动gzip压缩
-        compress:true,
+        // compress:true,
         //端口号
         port:3000,
         // open:true,
+        // hot:true,
         inline:true
     },
     target: ['web', 'es5'],
